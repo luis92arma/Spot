@@ -1,3 +1,37 @@
-<p>
-  search works!
-</p>
+<div class="container top-30">
+  <div class="row">
+    <div class="col-md-12">
+      <label for="termino">Buscador de artistas</label>
+      <input [(ngModel)]="termino"
+      (keyup)="buscarArtista()"
+      type="text" name="termino"
+      class="form-control"
+      placeholder="Busca tu artista...">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-columns">
+      <div class="card text-white bg-dark mb-3" *ngFor="let item of _spotifyService.artsitas">
+        <img class="card-img-top" [src]="item.images | sinfoto" [alt]="item.name">
+        <div class="card-body">
+          <h4 class="card-title">{{item.name}}</h4>
+          <div class="card-text">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item dark">
+                Followers: {{ item.followers.total }}
+              </li>
+              <li class="list-group-item dark">
+                Genero: {{ item.genres | genres }}
+              </li>
+              <li class="list-group-item dark">
+                Ranking: {{ item.popularity }}
+              </li>
+            </ul>
+          </div>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
