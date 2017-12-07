@@ -1,4 +1,8 @@
 
 li.list-group-item.dark {
-    background-color: #343a40;
+  background-color: #343a40;
+}
+
+.card-columns {
+  display: block;
 }

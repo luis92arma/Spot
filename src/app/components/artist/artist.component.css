@@ -1,0 +1,12 @@
+.container {
+  padding-top: 30px;
+}
+.align-middle {
+  padding-top: 30%;
+}
+li.list-group-item {
+  background-color: #448AFF;
+}
+img.rounded-circle {
+  width: 100%;
+}

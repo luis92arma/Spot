@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <div class="card-columns">
-      <div class="card text-white bg-dark mb-3" *ngFor="let item of _spotifyService.artsitas">
+      <div class="card text-white bg-dark mb-3" *ngFor="let item of _spotifyService.artistas">
         <img class="card-img-top" [src]="item.images | sinfoto" [alt]="item.name">
         <div class="card-body">
           <h4 class="card-title">{{item.name}}</h4>
@@ -25,11 +25,12 @@
                 Genero: {{ item.genres | genres }}
               </li>
               <li class="list-group-item dark">
-                Ranking: {{ item.popularity }}
+                <iframe [src]="item.uri | domseguro:'https://open.spotify.com/follow/1/?uri='" width="300" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
+
               </li>
             </ul>
           </div>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <a class="card-text" [routerLink]="['/artist', item.id]" ><small class="text-muted">more...</small></a>
         </div>
       </div>
     </div>

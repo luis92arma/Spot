@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-fluid img-thumbnail" [src]="artista.images | sinfoto" [alt]="artista.name">
+    </div>
+    <div class="col-md-6">
+      <div class="align-middle">
+        <h1 class="text-center">{{artista.name}}</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-secondary btn-lg btn-block btn-danger"
+          [routerLink]="['/buscar']"
+          >
+            back
+          </button>
+        </div>
+        <div class="col-md-6">
+          <a [href]="artista.external_urls?.spotify" target="_blank" type="button" class="btn btn-secondary btn-lg btn-block btn-success">
+            open
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of top">
+          <div class="row">
+            <div class="col-md-1">
+              <img [src]="item.album.images | sinfoto" alt="" class="rounded-circle">
+            </div>
+            <div class="col-md-4">
+              {{item.name}}
+            </div>
+            <div class="col-md-5">
+              <!--<audio controls>
+                <source [src]="item.preview_url | sinaudio">
+              </audio> -->
+              <iframe [src]="item.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true">
+              </iframe>
+            </div>
+            <div class="col-md-2">
+              Ranking: {{item.popularity}}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
